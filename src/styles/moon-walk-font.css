@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Moon Walk';
+  src: url('../assets/fonts/Moon-Walk-Font/Moon\ Walk.otf') format('opentype'),
+       url('../assets/fonts/Moon-Walk-Font/Moon\ Walk.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

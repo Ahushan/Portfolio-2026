@@ -1,0 +1,196 @@
+/* ================================
+   BASE TOOLTIP
+================================ */
+.tooltip-v {
+  position: relative;
+  border-radius: 25px;
+  z-index: 0; /* create stacking context */
+}
+
+/* pseudo elements (arrows) */
+.tooltip-v::before,
+.tooltip-v::after {
+  content: "";
+  position: absolute;
+  background: transparent;
+  z-index: 0; /* ABOVE background, BELOW content */
+}
+
+/* ensure content is always above arrows */
+.tooltip-v > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ================================
+   BOTTOM POSITIONS
+================================ */
+.tooltip-v[data-tooltip-position^="bottom"]::before,
+.tooltip-v[data-tooltip-position^="bottom"]::after {
+  height: 40px;
+  width: 20px;
+  bottom: -40px;
+  box-shadow: 0 -20px 0 0 var(--tooltip-bg);
+}
+
+.tooltip-v[data-tooltip-position^="bottom"]::before {
+  border-top-right-radius: 20px;
+}
+
+.tooltip-v[data-tooltip-position^="bottom"]::after {
+  border-top-left-radius: 20px;
+}
+
+/* bottom center */
+.tooltip-v[data-tooltip-position="bottom"]::before {
+  left: 30px;
+}
+.tooltip-v[data-tooltip-position="bottom"]::after {
+  left: 50px;
+}
+
+/* bottom start */
+.tooltip-v[data-tooltip-position="bottom-start"]::before {
+  left: -10px;
+}
+.tooltip-v[data-tooltip-position="bottom-start"]::after {
+  left: 10px;
+}
+
+/* bottom end */
+.tooltip-v[data-tooltip-position="bottom-end"]::before {
+  right: 10px;
+}
+.tooltip-v[data-tooltip-position="bottom-end"]::after {
+  right: -10px;
+}
+
+/* ================================
+   TOP POSITIONS
+================================ */
+.tooltip-v[data-tooltip-position^="top"]::before,
+.tooltip-v[data-tooltip-position^="top"]::after {
+  height: 40px;
+  width: 20px;
+  top: -40px;
+  box-shadow: 0 20px 0 0 var(--tooltip-bg);
+}
+
+.tooltip-v[data-tooltip-position^="top"]::before {
+  border-bottom-right-radius: 20px;
+}
+
+.tooltip-v[data-tooltip-position^="top"]::after {
+  border-bottom-left-radius: 20px;
+}
+
+/* top center */
+.tooltip-v[data-tooltip-position="top"]::before {
+  left: 50%;
+}
+.tooltip-v[data-tooltip-position="top"]::after {
+  left: calc(50% + 20px);
+}
+
+/* top start */
+.tooltip-v[data-tooltip-position="top-start"]::before {
+  left: 10px;
+}
+.tooltip-v[data-tooltip-position="top-start"]::after {
+  left: 30px;
+}
+
+/* top end */
+.tooltip-v[data-tooltip-position="top-end"]::before {
+  right: 30px;
+}
+.tooltip-v[data-tooltip-position="top-end"]::after {
+  right: 10px;
+}
+
+/* ================================
+   RIGHT POSITIONS
+================================ */
+.tooltip-v[data-tooltip-position^="right"]::before,
+.tooltip-v[data-tooltip-position^="right"]::after {
+  height: 20px;
+  width: 40px;
+  right: -37.5px;
+  box-shadow: -20px 0 0 0 var(--tooltip-bg);
+}
+
+.tooltip-v[data-tooltip-position^="right"]::before {
+  border-bottom-left-radius: 20px;
+}
+
+.tooltip-v[data-tooltip-position^="right"]::after {
+  border-top-left-radius: 20px;
+}
+
+/* right center */
+.tooltip-v[data-tooltip-position="right"]::before {
+  top: calc(50% - 20px);
+}
+.tooltip-v[data-tooltip-position="right"]::after {
+  top: 50%;
+}
+
+/* right start */
+.tooltip-v[data-tooltip-position="right-start"]::before {
+  display: none;
+}
+.tooltip-v[data-tooltip-position="right-start"]::after {
+  top: 0%;
+}
+
+/* right end */
+.tooltip-v[data-tooltip-position="right-end"]::before {
+  bottom: 0%;
+}
+.tooltip-v[data-tooltip-position="right-end"]::after {
+  /* hide this */
+    display: none;
+}
+
+/* ================================
+   LEFT POSITIONS
+================================ */
+.tooltip-v[data-tooltip-position^="left"]::before,
+.tooltip-v[data-tooltip-position^="left"]::after {
+  height: 20px;
+  width: 40px;
+  left: -40px;
+  box-shadow: 20px 0 0 0 var(--tooltip-bg);
+}
+
+.tooltip-v[data-tooltip-position^="left"]::before {
+  border-bottom-right-radius: 20px;
+}
+
+.tooltip-v[data-tooltip-position^="left"]::after {
+  border-top-right-radius: 20px;
+}
+
+/* left center */
+.tooltip-v[data-tooltip-position="left"]::before {
+  top: 30px;
+}
+.tooltip-v[data-tooltip-position="left"]::after {
+  top: 50px;
+}
+
+/* left start */
+.tooltip-v[data-tooltip-position="left-start"]::before {
+  top: -10px;
+}
+.tooltip-v[data-tooltip-position="left-start"]::after {
+  top: 10px;
+}
+
+/* left end */
+.tooltip-v[data-tooltip-position="left-end"]::before {
+  bottom: 10px;
+}
+.tooltip-v[data-tooltip-position="left-end"]::after {
+  bottom: -10px;
+}

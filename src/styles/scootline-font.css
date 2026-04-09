@@ -1,0 +1,5 @@
+@font-face {
+    font-family: 'Scootline';
+    src: url('../assets/fonts/Scootline-Font/scootline-signature.otf') format('opentype'),
+         url('../assets/fonts/Scootline-Font/scootline-signature.ttf') format('truetype');
+}

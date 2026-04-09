@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('./hosnia-font.css');
+@import url('./moon-walk-font.css');
+@import "tailwindcss";
+
+/* Base font */
+body {
+  font-family: "Inter", "Josefin Sans", sans-serif;
+}
+
+
+.atkinson {
+  font-family: "Atkinson Hyperlegible Mono", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.space-mono-regular {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.space-mono-bold {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.space-mono-regular-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.space-mono-bold-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.oswald {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.josefin {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+}
+
+
+.moon-walk {
+  font-family: 'Moon Walk', cursive;
+  font-style: normal;
+}
+
+.hosnia {
+  font-family: 'MyFont', sans-serif;
+  font-style: normal;
+}
