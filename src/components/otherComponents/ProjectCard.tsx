@@ -23,13 +23,14 @@ const ProjectCard = ({ project }: projectPropType) => {
         />
       </div>
 
-      <div className="bg-white backdrop-blur-md text-black tracking-wide cursor-pointer px-3 py-2 mt-3 rounded-lg">
+      <div className="text-white tracking-wide cursor-pointer px-3 py-2 mt-3 rounded-lg">
         {/* TITLE */} 
-        <div className="w-full h-full rounded-2xl group transition py-2 flex justify-evenly items-center hover:scale-97 ease-in-out duration-200 bg-white"
+        <div className="w-full h-full rounded-2xl group transition py-2 flex justify-evenly
+        border-2 border-white items-center hover:scale-97 ease-in-out duration-200 bg-black/70"
           onClick={() => setIsOpen(!isOpen)}
         >
           <h3
-            className="text-sm font-bold mt-4 josefin uppercase pb-2 text-center cursor-pointer transition"
+            className="text-sm font-bold mt-4 josefin uppercase pb-2 text-center cursor-pointer  transition"
           >
             {project.title}
           </h3>
@@ -44,7 +45,7 @@ const ProjectCard = ({ project }: projectPropType) => {
               transition={{ duration: 0.4, ease: "easeInOut" }}
               className="overflow-hidden"
             >
-              <div className="josefin mt-3">
+              <div className="josefin mt-3 bg-white p-3 rounded-lg">
                 <p className="text-sm text-black tracking-wide">
                   {project.description}
                 </p>
