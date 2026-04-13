@@ -4,9 +4,10 @@ import { PixelImage } from "../../components/otherComponents/PixelImage";
 import TextGenerateEffect from "../../components/texts/TextGenerateEffect";
 import image1 from '../../assets/images/my_images/my-image1.png'
 import image2 from '../../assets/images/my_images/my-image2.png'
+import image3 from '../../assets/images/my_images/my-image3.png'
 
 const Home = (): JSX.Element => {
-  const Image_Gallery = [image1, image2]
+  const Image_Gallery = [image1, image2, image3]
   return (
     <div className="relative m-4 rounded-2xl" id="Home">
 
