@@ -45,8 +45,8 @@ const ProjectCard = ({ project }: projectPropType) => {
               transition={{ duration: 0.4, ease: "easeInOut" }}
               className="overflow-hidden"
             >
-              <div className="josefin mt-3 bg-white p-3 rounded-lg">
-                <p className="text-sm text-black tracking-wide">
+              <div className="josefin mt-3 bg-linear-to-r from-purple-600 to-indigo-500 p-3 rounded-lg">
+                <p className="text-sm text-white tracking-wide">
                   {project.description}
                 </p>
 
@@ -54,7 +54,7 @@ const ProjectCard = ({ project }: projectPropType) => {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-1 bg-black/70 text-white text-xs rounded-full"
+                      className="px-2 py-1 bg-white/70 text-black text-xs rounded-full"
                     >
                       {tech}
                     </span>
@@ -74,7 +74,7 @@ const ProjectCard = ({ project }: projectPropType) => {
                   {project.live && (
                     <button
                       onClick={() => window.open(project.live, "_blank")}
-                      className="p-2 rounded-full bg-linear-to-r from-purple-600 to-indigo-500 text-white hover:scale-110 transition"
+                      className="p-2 rounded-full bg-white text-black hover:scale-110 transition"
                     >
                       <ExternalLink className="w-4 h-4" />
                     </button>
