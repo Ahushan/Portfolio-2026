@@ -30,7 +30,7 @@ function Skills({ skillsData }: skillsDataPropTypes) {
           Tech Stacks
         </h1>
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
+          initial={{ opacity: 0, x: -100 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 1 }}
           className=" font-bold mb-6!"
