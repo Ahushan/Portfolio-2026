@@ -9,7 +9,7 @@ export interface HorizontalCardProps {
 function HorizontalCard({ cardData, index }: HorizontalCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 60 }}
+      initial={{ opacity: 1, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.08, duration: 0.6 }}
       whileHover={{ scale: 1.04 }}
