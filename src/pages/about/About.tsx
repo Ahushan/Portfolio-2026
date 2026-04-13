@@ -22,7 +22,7 @@ const About = (): JSX.Element => {
       <div className="sticky top-0 h-screen flex items-center overflow-hidden">
         <h1
           className="
-          text-4xl md:text-7xl lg:text-8xl uppercase absolute
+          text-4xl md:text-6xl lg:text-8xl uppercase absolute
           top-5 left-1/2 -translate-x-1/2
           font-extrabold tracking-wide text-nowrap
 

@@ -21,7 +21,7 @@ export default function Hero() {
         <div className="text-center md:text-left">
 
           {/* 🔥 NAME */}
-          <h1 className="splas moon-walk leading-tight">
+          <h1 className="moon-walk leading-tight">
             <div className="text-6xl md:text-7xl lg:text-8xl contrast-150 bg-linear-to-r from-[#CDAB58] via-[#FCF69E] to-[#B49444] bg-clip-text text-transparent">
               Mohamed
             </div>
