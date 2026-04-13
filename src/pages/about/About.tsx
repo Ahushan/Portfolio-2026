@@ -20,7 +20,14 @@ const About = (): JSX.Element => {
     >
       {/* Sticky Container */}
       <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-        
+        <h1
+          className="text-5xl md:text-7xl lg:text-8xl uppercase absolute w-fit pb-3
+          font-extrabold tracking-wide
+          bg-linear-to-r from-black via-gray-800 to-gray-400
+          bg-clip-text text-transparent"
+        >
+          Natural Skills
+        </h1>
         {/* Horizontal Scroll Wrapper */}
         <motion.div
           style={{ x }}
