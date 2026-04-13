@@ -11,7 +11,7 @@ function HorizontalCard({ cardData, index }: HorizontalCardProps) {
     <motion.div
       initial={{ opacity: 1, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.08, duration: 0.6 }}
+      transition={{ delay: index * 0.08, duration: 0.3 }}
       whileHover={{ scale: 1.04 }}
       className="group relative min-w-[320px] h-105 shrink-0"
     >
@@ -24,7 +24,7 @@ function HorizontalCard({ cardData, index }: HorizontalCardProps) {
         <div className="h-full w-full rounded-2xl bg-[#0a0a0a] p-6 flex flex-col justify-between relative overflow-hidden">
           
           {/* ⚡ Glow Pulse Effect */}
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500">
+          <div className="absolute inset-0 opacity-100 group-hover:opacity-100 transition duration-500">
             <div
               className={`absolute inset-0 ${cardData.color} blur-2xl opacity-20`}
             />

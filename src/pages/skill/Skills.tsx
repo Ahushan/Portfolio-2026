@@ -16,8 +16,18 @@ function Skills({ skillsData }: skillsDataPropTypes) {
       className="overflow-hidden bg-transparent p-5 z-10" id="Tech-Stack"
     > 
       <div className="max-w-6xl! bg-transparent mx-auto!">
-        <h1 className="text-[30px] w-fit pb-3! oswald-bold shimmer-text font-extrabold oswald text-white text-balance">
-          TECH STACKS
+        <h1
+          className="
+          text-5xl md:text-7xl lg:text-8xl uppercase 
+          font-extrabold tracking-wide text-nowrap
+
+          bg-linear-to-r from-gray-700 via-white to-gray-700
+          bg-clip-text text-transparent
+
+          shimmer-text
+          "
+        >
+          Tech Stacks
         </h1>
         <motion.div
           initial={{ opacity: 0, x: -50 }}

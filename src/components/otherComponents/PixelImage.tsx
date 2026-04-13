@@ -159,7 +159,7 @@ export const PixelImage = ({
         <button
           type="button"
           onClick={resetAnimation}
-          className="absolute bottom-2 right-2 z-10 rounded-lg text-black text-xl p-2 transition-opacity hover:scale-110 hover:cursor-pointer bg-white/80 backdrop-blur-md opacity-80 hover:opacity-100"
+          className="absolute bottom-2 right-2 z-10 rounded-lg text-black text-xl p-2 hover:scale-115 transition-all ease-in-out hover:cursor-pointer"
         >
           <SiReactiveresume />
         </button>

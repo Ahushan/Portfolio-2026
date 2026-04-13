@@ -21,10 +21,16 @@ const About = (): JSX.Element => {
       {/* Sticky Container */}
       <div className="sticky top-0 h-screen flex items-center overflow-hidden">
         <h1
-          className="text-5xl md:text-7xl lg:text-8xl uppercase absolute w-fit pb-3
-          font-extrabold tracking-wide
-          bg-linear-to-r from-black via-gray-800 to-gray-400
-          bg-clip-text text-transparent"
+          className="
+          text-5xl md:text-7xl lg:text-8xl uppercase absolute
+          top-5 left-1/2 -translate-x-1/2
+          font-extrabold tracking-wide text-nowrap
+
+          bg-linear-to-r from-gray-700 via-white to-gray-700
+          bg-clip-text text-transparent
+
+          shimmer-text
+          "
         >
           Natural Skills
         </h1>
