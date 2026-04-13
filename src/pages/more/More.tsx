@@ -9,7 +9,7 @@ const More = () => {
     >
         <h1
           className="
-          text-5xl md:text-7xl lg:text-8xl uppercase
+          text-4xl md:text-7xl lg:text-8xl uppercase
           font-extrabold tracking-wide text-nowrap
 
           bg-linear-to-r from-gray-700 via-white to-gray-700
