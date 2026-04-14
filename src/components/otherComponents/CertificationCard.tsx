@@ -1,7 +1,7 @@
 import { Award, Calendar } from "lucide-react";
 import TiltCard from "./TiltCard";
 
-type CertificationsTypes = {
+type CertificationCardTypes = {
   title: string;
   company: string;
   description: string;
@@ -9,14 +9,14 @@ type CertificationsTypes = {
   techStacks: string[];
 };
 
-type CertificationsPropType = {
-  certifications: CertificationsTypes[];
+type CertificationCardPropType = {
+  CertificationCardData: CertificationCardTypes[];
 };
 
-const Certifications = ({ certifications }: CertificationsPropType) => {
+const CertificationCard = ({ CertificationCardData }: CertificationCardPropType) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-      {certifications.map((cert, index) => (
+      {CertificationCardData.map((cert, index) => (
         <TiltCard key={`${index}-${cert.title}`}>
           
           <div
@@ -88,4 +88,4 @@ const Certifications = ({ certifications }: CertificationsPropType) => {
   );
 };
 
-export default Certifications;
+export default CertificationCard;

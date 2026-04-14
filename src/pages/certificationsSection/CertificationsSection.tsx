@@ -1,11 +1,11 @@
-import Certifications from "../../components/otherComponents/Certifications";
+import CertificationCard from "../../components/otherComponents/CertificationCard";
 import { certificationsData } from "../../data/Constant";
 
-const More = () => {
+const CertificationsSection = () => {
   return (
     <div
       className="bg-transparent h-fit overflow-hidden p-5 "
-      id="More"
+      id="CertificationsSection"
     >
         <h1
           className="
@@ -20,9 +20,9 @@ const More = () => {
         >
           Certifications
         </h1>
-      <Certifications certifications={certificationsData} />
+      <CertificationCard CertificationCardData={certificationsData} />
     </div>
   );
 };
 
-export default More;
+export default CertificationsSection;

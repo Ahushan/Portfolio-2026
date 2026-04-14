@@ -4,9 +4,9 @@ import Hero from "./pages/hero/Hero"
 import Home from "./pages/home/Home"
 import { TechStackData } from "./data/Constant"
 import Projects from "./pages/project/Projects"
-import More from "./pages/more/More"
 import Footer from "./components/layout/Footer"
-import TechStackSection from "./pages/skill/TechStackSection"
+import TechStackSection from "./pages/techStackSection/TechStackSection"
+import CertificationsSection from "./pages/certificationsSection/CertificationsSection"
 
 const App = () => {
   return (
@@ -23,7 +23,7 @@ const App = () => {
           <About />
           <TechStackSection TechStackData={TechStackData}/>
           <Projects />
-          <More />
+          <CertificationsSection />
           <Footer />
         </div>
 

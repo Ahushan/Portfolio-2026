@@ -38,7 +38,7 @@ const Home = (): JSX.Element => {
           <div
             className="about mx-auto lg:mx-0
             max-w-[90%] lg:max-w-[80%]
-            rounded-sm shadow-sm bg-linear-to-b from-white to-gray-500
+            rounded-sm shadow-sm bg-liear-to-b from-white to-gray-500
             p-5 text-black transition-all duration-500 ease-in-out
             hover:scale-[0.98]"
           >
@@ -51,7 +51,7 @@ const Home = (): JSX.Element => {
               transition={{ delay: 0.6, duration: 0.8 }}
             >
               <TextGenerateEffect
-                className="space-mono-regular text-sm md:text-base leading-relaxed md:leading-7 tracking-wide ease-in-out select-none lg:text-justify hyphens-auto space-y-4"
+                className="space-mono-regular text-sm md:text-base text-white leading-relaxed md:leading-7 tracking-wide ease-in-out select-none lg:text-justify hyphens-auto space-y-4"
                 words="A versatile creator skilled in frontend and backend development, database management, UI/UX design, and content writing. My expertise spans crafting seamless user interfaces to building robust backend systems, ensuring that every aspect of a project is cohesive and user-friendly. I design and optimize databases for efficient data handling and understand scalable system design principles that adapt to evolving needs. I am also proficient in version control systems, particularly Git, which facilitates effective collaboration and code management within teams. Driven by creativity and precision, I turn ideas into impactful digital experiences. Looking ahead, I aspire to deepen my knowledge in artificial intelligence and machine learning, aiming to integrate these technologies into my projects to create innovative solutions that enhance user experiences and drive business success."
               />
             </motion.div>
