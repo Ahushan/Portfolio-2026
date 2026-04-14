@@ -4,12 +4,12 @@ import Bitmoji from "../../assets/images/my_images/my_bitmoji.png";
 import InViewNotification from "../../components/otherComponents/InViewNotification";
 import { Bell } from "lucide-react";
 import HeartGif from "../../assets/images/gif/512.gif";
-import cosmic from "../../assets/images/gif/cosmic.gif";
+// import cosmic from "../../assets/images/gif/cosmic.gif";
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center text-white px-6 overflow-hidden">
-      <img
+      {/* <img
         src={cosmic}
         alt="background animation"
         className="
@@ -20,7 +20,7 @@ export default function Hero() {
           pointer-events-none
           z-0
         "
-      />
+      /> */}
       <div className="absolute josefin top-4 right-4 inline-flex items-center justify-center gap-2 px-4 py-1 border-3 border-green-500/30 text-green-400 rounded-full text-xs md:text-sm backdrop-blur-md">
         <span className="w-2 h-2  bg-green-500 rounded-full animate-pulse"></span>
         Available for Work
