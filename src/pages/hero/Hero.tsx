@@ -9,7 +9,6 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-linear-to-b from-black via-blue-900 to-transparent via-80% text-white px-6 overflow-hidden">
 
-      {/* Availability Badge */}
       <div className="absolute josefin top-4 right-4 inline-flex items-center justify-center gap-2 px-4 py-1 border-3 border-green-500/30 text-green-400 rounded-full text-xs md:text-sm backdrop-blur-md">
         <span className="w-2 h-2  bg-green-500 rounded-full animate-pulse"></span>
         Available for Work
@@ -17,10 +16,8 @@ export default function Hero() {
 
       <div className="max-w-7xl w-full grid md:grid-cols-2 gap-12 items-center">
 
-        {/* LEFT CONTENT */}
         <div className="text-center md:text-left">
 
-          {/* 🔥 NAME */}
           <h1 className="moon-walk leading-tight">
             <div className="text-6xl md:text-7xl lg:text-8xl contrast-150 bg-linear-to-r from-[#CDAB58] via-[#FCF69E] to-[#B49444] bg-clip-text text-transparent">
               Mohamed
@@ -31,7 +28,6 @@ export default function Hero() {
             </div>
           </h1>
 
-          {/* Description */}
           <blockquote className="mt-6 border-l-2 pl-6 italic">
             <TextGenerateEffect
               className="mt-6 text-sm text-start md:text-md atkinson text-gray-300 max-w-lg leading-relaxed mx-auto md:mx-0"
@@ -39,7 +35,6 @@ export default function Hero() {
             />
           </blockquote>
 
-          {/* Buttons */}
           <div className="mt-8 flex gap-4 atkinson text-nowrap flex-wrap justify-center md:justify-start">
             <CreepyButton
               coverClassName="bg-black text-white border border-white/20"
@@ -57,7 +52,6 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* RIGHT SIDE VISUAL */}
         <div className="flex justify-center items-center">
           <div className="relative group">
 

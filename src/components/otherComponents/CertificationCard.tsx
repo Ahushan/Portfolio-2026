@@ -23,7 +23,7 @@ const CertificationCard = ({ CertificationCardData }: CertificationCardPropType)
             className="
             h-full flex flex-col
             rounded-md p-5
-            bg-white/70 backdrop-blur-sm
+            bg-white/85 backdrop-blur-sm
             border-3 border-indigo-900
             transition-all duration-300
             "

@@ -32,7 +32,7 @@ const About = (): JSX.Element => {
           shimmer-text
           "
         >
-          Natural Skills
+          tech asernal
         </h1>
         {/* Horizontal Scroll Wrapper */}
         <motion.div

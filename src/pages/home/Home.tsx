@@ -2,64 +2,97 @@ import { motion } from "framer-motion";
 import type { JSX } from "react";
 import { PixelImage } from "../../components/otherComponents/PixelImage";
 import TextGenerateEffect from "../../components/texts/TextGenerateEffect";
-import image1 from '../../assets/images/my_images/my-image1.png'
-import image2 from '../../assets/images/my_images/my-image2.png'
-import image3 from '../../assets/images/my_images/my-image3.png'
+
+import image1 from "../../assets/images/my_images/my-image1.png";
+import image2 from "../../assets/images/my_images/my-image2.png";
+import image3 from "../../assets/images/my_images/my-image3.png";
+import flower from "../../assets/images/gif/flowers.gif"
 
 const Home = (): JSX.Element => {
-  const Image_Gallery = [image1, image2, image3]
+  const Image_Gallery = [image1, image2, image3];
+
   return (
-    <div className="relative m-4 rounded-2xl" id="Home">
+    <section className="relative px-4 md:px-8 py-10" id="Home">
 
-      {/* Main Flex Container */}
-      <div className="h-fit w-full flex flex-col lg:flex-row items-center lg:items-center gap-10">
+      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
 
-        {/* LEFT SIDE - IMAGE */}
         <motion.div
-          className="flex-1 flex justify-center items-center"
-          initial={{ x: -100, opacity: 0 }}
+          className="flex-1 flex justify-center"
+          initial={{ x: -80, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8 }}
         >
-          <div className="relative w-72.5 md:w-105 overflow-hidden">
-            <PixelImage src={Image_Gallery} showReplayButton={true} grayscaleAnimation={false} grid="3x3" />
-            <div className="absolute flex justify-center -bottom-1 bg-linear-to-t  from-white via-[#B49444] to-transparent from-10% h-50 w-72 select-none md:h-76 md:w-86 z-0 rounded-lg">
+          <div className="relative w-72 flex justify-center md:w-96 rounded-md overflow-hidden">
+
+            <img
+              src={flower}
+              alt="background animation"
+              className="
+              absolute inset-0
+              w-full h-full
+              object-cover
+              pointer-events-none
+              select-none
+              opacity-80
+              z-0
+              "
+            />
+
+            <div className="relative z-10">
+              <PixelImage
+                src={Image_Gallery}
+                showReplayButton={true}
+                grayscaleAnimation={false}
+                grid="3x3"
+              />
             </div>
+
           </div>
         </motion.div>
 
-        {/* RIGHT SIDE - ABOUT */}
         <motion.div
-          className="flex-1 flex justify-center lg:justify-start"
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.3, duration: 0.9 }}
+          className="flex-1"
+          initial={{ x: 40, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
         >
-          <div
-            className="about mx-auto lg:mx-0
-            max-w-[90%] lg:max-w-[80%]
-            rounded-sm shadow-sm bg-liear-to-b from-white to-gray-500
-            p-5 text-black transition-all duration-500 ease-in-out
-            hover:scale-[0.98]"
-          >
+          <div className="max-w-xl">
+
+            <h1
+              className=" my-2
+          text-3xl md:text-4xl lg:text-5xl uppercase
+          font-extrabold tracking-wide text-nowrap
+
+          bg-linear-to-r from-gray-700 via-white to-gray-700
+          bg-clip-text text-transparent
+
+          shimmer-text
+          "
+            >
+              About me
+            </h1>
+
             <motion.div
-              className="text-sm md:text-base leading-relaxed md:leading-7 
-              tracking-wide ease-in-out select-none lg:text-justify hyphens-auto 
-              space-y-4 font-techmono"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
+              transition={{ delay: 0.4 }}
             >
               <TextGenerateEffect
-                className="space-mono-regular text-sm md:text-base text-white leading-relaxed md:leading-7 tracking-wide ease-in-out select-none lg:text-justify hyphens-auto space-y-4"
-                words="A versatile creator skilled in frontend and backend development, database management, UI/UX design, and content writing. My expertise spans crafting seamless user interfaces to building robust backend systems, ensuring that every aspect of a project is cohesive and user-friendly. I design and optimize databases for efficient data handling and understand scalable system design principles that adapt to evolving needs. I am also proficient in version control systems, particularly Git, which facilitates effective collaboration and code management within teams. Driven by creativity and precision, I turn ideas into impactful digital experiences. Looking ahead, I aspire to deepen my knowledge in artificial intelligence and machine learning, aiming to integrate these technologies into my projects to create innovative solutions that enhance user experiences and drive business success."
+                className="
+                text-md md:text-base
+                text-white/80
+                leading-relaxed
+                tracking-wide font-light
+                "
+                words="A versatile creator skilled in frontend and backend development, database management, UI/UX design, and content writing. My expertise spans crafting seamless user interfaces to building robust backend systems, ensuring cohesive and user-friendly experiences. I design efficient databases and understand scalable system design principles. Proficient in Git for collaboration, I transform ideas into impactful digital products. Looking ahead, I aim to integrate AI and ML into my projects to build innovative solutions."
               />
             </motion.div>
+
           </div>
         </motion.div>
 
       </div>
-    </div>
+    </section>
   );
 };
 
