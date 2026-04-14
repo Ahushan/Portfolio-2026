@@ -10,15 +10,13 @@ type ProjectCardProps = {
 const ProjectCard = ({ project }: ProjectCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // ✅ ESC key close
+  // ESC close (optimized)
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") setIsOpen(false);
     };
 
-    if (isOpen) {
-      window.addEventListener("keydown", handleEsc);
-    }
+    if (isOpen) window.addEventListener("keydown", handleEsc);
 
     return () => window.removeEventListener("keydown", handleEsc);
   }, [isOpen]);
@@ -28,22 +26,34 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       {/* CARD */}
       <div
         onClick={() => setIsOpen(true)}
-        className="cursor-pointer border border-white/10 rounded-lg bg-black hover:border-white/30 transition"
+        className="
+          cursor-pointer
+          border border-white/10
+          rounded-lg bg-black
+          hover:border-white/30
+          transition-all duration-300 ease-out
+          transform-gpu
+        "
       >
         <div className="overflow-hidden rounded-t-lg">
           <img
             src={project.image || "/placeholder.svg"}
             alt={project.title}
             loading="lazy"
-            className="w-full h-52 md:h-60 object-cover transition duration-300 hover:scale-105"
+            className="
+              w-full h-52 md:h-60 object-cover
+              transition-transform duration-500 ease-out
+              hover:scale-110
+              will-change-transform
+            "
           />
         </div>
+
         <div className="p-4">
           <h3 className="text-white text-base font-semibold uppercase tracking-wide">
             {project.title}
           </h3>
         </div>
-
       </div>
 
       {/* MODAL */}
@@ -54,21 +64,35 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
             onClick={() => setIsOpen(false)}
           >
             {/* MODAL BOX */}
             <motion.div
-              initial={{ scale: 0.9, y: 30, opacity: 0 }}
+              initial={{ scale: 0.92, y: 40, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
-              exit={{ scale: 0.9, y: 30, opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              className="bg-black border border-white/20 rounded-xl w-full max-w-2xl overflow-hidden relative"
-              onClick={(e) => e.stopPropagation()} // ✅ prevent inside click
+              exit={{ scale: 0.92, y: 40, opacity: 0 }}
+              transition={{
+                duration: 0.35,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
+              className="
+                bg-black border border-white/20
+                rounded-xl w-full max-w-2xl
+                overflow-hidden relative
+                transform-gpu
+              "
+              onClick={(e) => e.stopPropagation()}
             >
               {/* CLOSE BUTTON */}
               <button
                 onClick={() => setIsOpen(false)}
-                className="absolute top-3 right-3 z-10 bg-white/10 hover:bg-white/20 p-2 rounded-full"
+                className="
+                  absolute top-3 right-3 z-10
+                  bg-white/10 hover:bg-white/20
+                  p-2 rounded-full
+                  transition-all duration-200
+                "
               >
                 <X className="w-4 h-4 text-white" />
               </button>
@@ -90,13 +114,17 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                   {project.description}
                 </p>
 
-                {/* TECH STACK (SCROLLABLE X) */}
+                {/* TECH STACK */}
                 <div className="mt-4 overflow-x-auto no-scrollbar">
                   <div className="flex gap-2 min-w-max">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 text-xs rounded-md bg-white/10 text-white whitespace-nowrap"
+                        className="
+                          px-3 py-1 text-xs rounded-md
+                          bg-white/10 text-white
+                          whitespace-nowrap
+                        "
                       >
                         {tech}
                       </span>
@@ -109,7 +137,11 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                   {project.github && (
                     <button
                       onClick={() => window.open(project.github, "_blank")}
-                      className="p-2 rounded-md bg-white/10 hover:bg-white/20 transition"
+                      className="
+                        p-2 rounded-md bg-white/10
+                        hover:bg-white/20
+                        transition-all duration-200
+                      "
                     >
                       <Github className="w-4 h-4 text-white" />
                     </button>
@@ -118,7 +150,11 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                   {project.live && (
                     <button
                       onClick={() => window.open(project.live, "_blank")}
-                      className="p-2 rounded-md bg-white text-black hover:bg-gray-200 transition"
+                      className="
+                        p-2 rounded-md bg-white text-black
+                        hover:bg-gray-200
+                        transition-all duration-200
+                      "
                     >
                       <ExternalLink className="w-4 h-4" />
                     </button>

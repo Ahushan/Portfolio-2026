@@ -15,7 +15,6 @@ function TechStackSection({ TechStackData }: TechStackSectionProps) {
     margin: "-80px",
   });
 
-  // container animation (lightweight)
   const containerVariants = {
     hidden: {},
     show: {

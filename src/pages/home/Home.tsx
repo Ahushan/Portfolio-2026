@@ -14,7 +14,7 @@ const Home = (): JSX.Element => {
   return (
     <section className="relative px-4 md:px-8 py-10" id="Home">
 
-      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+      <div className="max-w-6xl  mx-auto flex flex-col lg:flex-row items-center gap-12">
 
         <motion.div
           className="flex-1 flex justify-center"
@@ -80,7 +80,7 @@ const Home = (): JSX.Element => {
               <TextGenerateEffect
                 className="
                 text-md md:text-base
-                text-white/80
+                text-white
                 leading-relaxed
                 tracking-wide font-light
                 "
