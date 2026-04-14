@@ -2,7 +2,6 @@ import HorizontalCard from "../../components/otherComponents/HorizontalCards";
 import { useRef, type JSX } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { naturalSkillsCardData } from "../../data/Constant";
-import animatedGif from "../../assets/images/gif/animated.gif"
 
 const About = (): JSX.Element => {
   const targetRef = useRef(null);
