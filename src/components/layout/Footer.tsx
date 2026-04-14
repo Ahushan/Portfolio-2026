@@ -152,9 +152,9 @@ const Footer = () => {
 
               <button
                 type="submit"
-                className="bg-linear-to-tr from-slate-400 via-gray-900 to-gray-800 hover:shadow-2xl shadow-slate-300 
+                className="bg-linear-to-tr from-blue-700 via-gray-100 to-red-400 hover:shadow-2xl shadow-slate-300 
                   hover:scale-101 transition-all duration-300 px-6 py-3 rounded-lg
-                  flex justify-center items-center text-white font-extrabold russo"
+                  flex justify-center items-center text-black josefin font-extrabold russo"
               >
                 Send
                 <Send className="w-5 h-4 ml-5" />

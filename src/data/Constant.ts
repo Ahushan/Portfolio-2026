@@ -181,7 +181,7 @@ export const skillsData = [
   { name: "Pandas", icon: "logos:pandas", color: "#150458" },
 ];
 
-export const techStacksDataWithTypes: {
+export const TechStackData: {
   name: string;
   icon: string | IconifyIcon;
   color: string;

@@ -10,7 +10,7 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center justify-center bg-linear-to-b from-black via-blue-900 to-transparent via-80% text-white px-6 overflow-hidden">
 
       {/* Availability Badge */}
-      <div className="absolute josefin top-4 right-4 inline-flex items-center gap-2 px-4 py-1 border-3 border-green-500/30 text-green-400 rounded-full text-xs md:text-sm backdrop-blur-md">
+      <div className="absolute josefin top-4 right-4 inline-flex items-center justify-center gap-2 px-4 py-1 border-3 border-green-500/30 text-green-400 rounded-full text-xs md:text-sm backdrop-blur-md">
         <span className="w-2 h-2  bg-green-500 rounded-full animate-pulse"></span>
         Available for Work
       </div>

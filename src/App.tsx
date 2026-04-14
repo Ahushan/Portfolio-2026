@@ -2,11 +2,11 @@ import { WavyBackground } from "./components/background/WavyBackground"
 import About from "./pages/about/About"
 import Hero from "./pages/hero/Hero"
 import Home from "./pages/home/Home"
-import Skills from "./pages/skill/Skills"
-import { skillsData } from "./data/Constant"
+import { TechStackData } from "./data/Constant"
 import Projects from "./pages/project/Projects"
 import More from "./pages/more/More"
 import Footer from "./components/layout/Footer"
+import TechStackSection from "./pages/skill/TechStackSection"
 
 const App = () => {
   return (
@@ -21,7 +21,7 @@ const App = () => {
           <Hero />
           <Home />
           <About />
-          <Skills skillsData={skillsData}/>
+          <TechStackSection TechStackData={TechStackData}/>
           <Projects />
           <More />
           <Footer />

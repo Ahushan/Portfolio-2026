@@ -6,7 +6,18 @@
 @import url('./moon-walk-font.css');
 @import "tailwindcss";
 
-/* Base font */
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scrollbar-width: none;
+}
+
+* {
+  -ms-overflow-style: none;
+}
+
 body {
   font-family: "Inter", "Josefin Sans", sans-serif;
 }
@@ -75,3 +86,6 @@ body {
   background-size: 200% auto;
   animation: shimmer 3s linear infinite;
 }
+
+
+

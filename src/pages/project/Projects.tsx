@@ -10,7 +10,7 @@ const Projects = () => {
     >
       <h1
         className="
-          text-3xl md:text-6xl lg:text-8xl uppercase 
+          text-3xl md:text-4xl lg:text-5xl uppercase 
           font-extrabold tracking-wide text-nowrap
 
           bg-linear-to-r from-gray-700 via-white to-gray-700

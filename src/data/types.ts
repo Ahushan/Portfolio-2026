@@ -1,3 +1,4 @@
+import type { IconifyIcon } from "@iconify/react";
 import type { LucideIcon } from "lucide-react";
 
 export type projectsDataTypes = {
@@ -29,4 +30,8 @@ export type certificationsDataTypes = {
   techStacks: string[];
 };
 
-export type skillsDataTypes = { name: string; icon: string; color?: string };
+export type TechStackDataTypes = { 
+    name: string;
+    icon: string | IconifyIcon;  // Changed from string to string | IconifyIcon
+    color: string;
+ };
