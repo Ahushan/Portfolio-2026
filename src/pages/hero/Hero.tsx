@@ -4,11 +4,23 @@ import Bitmoji from "../../assets/images/my_images/my_bitmoji.png";
 import InViewNotification from "../../components/otherComponents/InViewNotification";
 import { Bell } from "lucide-react";
 import HeartGif from "../../assets/images/gif/512.gif";
+import animatedGif from "../../assets/images/gif/waves.gif";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-linear-to-b from-black via-blue-900 to-transparent via-80% text-white px-6 overflow-hidden">
-
+    <section className="relative min-h-screen flex items-center justify-center text-white px-6 overflow-hidden">
+      <img
+        src={animatedGif}
+        alt="background animation"
+        className="
+          absolute inset-0
+          w-full h-full
+          object-cover
+          opacity-100
+          pointer-events-none
+          z-0
+        "
+      />
       <div className="absolute josefin top-4 right-4 inline-flex items-center justify-center gap-2 px-4 py-1 border-3 border-green-500/30 text-green-400 rounded-full text-xs md:text-sm backdrop-blur-md">
         <span className="w-2 h-2  bg-green-500 rounded-full animate-pulse"></span>
         Available for Work
@@ -17,7 +29,6 @@ export default function Hero() {
       <div className="max-w-7xl w-full grid md:grid-cols-2 gap-12 items-center">
 
         <div className="text-center md:text-left">
-
           <h1 className="moon-walk leading-tight">
             <div className="text-6xl md:text-7xl lg:text-8xl contrast-150 bg-linear-to-r from-[#CDAB58] via-[#FCF69E] to-[#B49444] bg-clip-text text-transparent">
               Mohamed

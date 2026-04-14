@@ -11,7 +11,7 @@ import CertificationsSection from "./pages/certificationsSection/CertificationsS
 const App = () => {
   return (
     <>
-      <section className="relative bg-black/50">
+      <section className="relative bg-black/50 select-none">
 
         <div className="fixed inset-0 -z-10">
           <WavyBackground />
@@ -19,9 +19,10 @@ const App = () => {
 
         <div className="relative  z-10">
           <Hero />
+          <div className="h-[10vh] bg-linear-to-b from-black via-black/95 to-transparent"></div>
           <Home />
           <About />
-          <TechStackSection TechStackData={TechStackData}/>
+          <TechStackSection TechStackData={TechStackData} />
           <Projects />
           <CertificationsSection />
           <Footer />
