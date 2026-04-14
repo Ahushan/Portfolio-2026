@@ -12,7 +12,7 @@ import cosmic from "./assets/images/gif/cosmic.gif";
 const App = () => {
   return (
     <>
-      <section className="relative bg-black/50 select-none">
+      <section className="relative bg-black/50 md:bg-black/60 select-none">
 
         <div className="fixed inset-0 -z-10">
           {/* <WavyBackground /> */}
