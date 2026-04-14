@@ -21,19 +21,19 @@ const Certifications = ({ certifications }: CertificationsPropType) => {
           <div key={`${index}-${cert.title}`}>
             <TiltCard>
               <div className="h-full flex flex-col
-               bg-black rounded-lg p-4 shadow hover:shadow-xl transition-shadow border border-gray-500">
+               bg-white/85 rounded-md p-4 shadow hover:shadow-xl transition-shadow border-3 border-blue-500">
                 
                 {/* Header */}
                 <div className="mb-3">
                   <div className="flex items-start justify-between mb-2">
                     <Award className="h-5 w-5 text-indigo-500 mt-1" />
-                    <div className="flex items-center gap-2 text-sm text-gray-400 space-mono-regular">
+                    <div className="flex items-center gap-2 text-sm text-gray-800 space-mono-regular">
                       <Calendar className="h-4 w-4" />
                       {cert.date}
                     </div>
                   </div>
 
-                  <h2 className="text-lg font-bold text-white josefin tracking-tight">
+                  <h2 className="text-lg font-bold text-gray-800 josefin tracking-tight">
                     {cert.title}
                   </h2>
                   <p className="text-indigo-400 text-sm atkinson uppercase mt-1 font-bold tracking-wide">
@@ -43,7 +43,7 @@ const Certifications = ({ certifications }: CertificationsPropType) => {
 
                 {/* Description */}
                  <div className="flex-1 mb-4">
-                  <p className="text-xs text-gray-300/90  josefin leading-relaxed">
+                  <p className="text-xs text-gray-800/90  josefin leading-relaxed">
                     {cert.description}
                   </p>
                 </div>
@@ -54,7 +54,7 @@ const Certifications = ({ certifications }: CertificationsPropType) => {
                     {cert.techStacks.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="text-xs px-2.5 py-1.5 rounded-full bg-white/20 text-white border border-white/10"
+                        className="text-xs px-2.5 py-1.5 rounded-full bg-black text-white border border-white/10"
                       >
                         {tech}
                       </span>

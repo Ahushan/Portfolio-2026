@@ -38,7 +38,7 @@ const Home = (): JSX.Element => {
           <div
             className="about mx-auto lg:mx-0
             max-w-[90%] lg:max-w-[80%]
-            rounded-sm shadow-sm bg-linear-to-b from-white to-gray-300/20
+            rounded-sm shadow-sm bg-linear-to-b from-white to-gray-500
             p-5 text-black transition-all duration-500 ease-in-out
             hover:scale-[0.98]"
           >

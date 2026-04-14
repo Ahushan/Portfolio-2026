@@ -18,7 +18,7 @@ function Skills({ skillsData }: skillsDataPropTypes) {
       <div className="max-w-6xl! bg-transparent mx-auto!">
         <h1
           className="
-          text-5xl md:text-6xl lg:text-8xl uppercase 
+          text-3xl md:text-6xl lg:text-8xl uppercase 
           font-extrabold tracking-wide text-nowrap
 
           bg-linear-to-r from-gray-700 via-white to-gray-700
