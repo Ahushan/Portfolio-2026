@@ -39,7 +39,7 @@ function TechStackSection({ TechStackData }: TechStackSectionProps) {
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 1 }}
+          transition={{ duration: 2, ease: "easeInOut" }}
           className="mt-6 w-full"
         >
           <div className="grid gap-5 w-full md:grid-cols-2 lg:grid-cols-4">
