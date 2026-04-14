@@ -2,10 +2,9 @@ import ProjectCard from "../../components/otherComponents/ProjectCard";
 import { projectsData } from "../../data/Constant";
 
 const Projects = () => {
-  //  bg-gradient-to-b from-gray-900 via-gray-900 to-black
   return (
     <div
-      className="h-fit p-5! flex bg-transparent  flex-col gap-4 mx-auto overflow-hidden"
+      className="h-fit p-5 flex bg-transparent  flex-col gap-4 mx-auto overflow-hidden"
       id="Projects"
     >
       <h1

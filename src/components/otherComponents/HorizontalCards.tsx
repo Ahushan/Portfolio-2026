@@ -10,10 +10,12 @@ export interface HorizontalCardProps {
 function HorizontalCard({ cardData, index }: HorizontalCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 1, y: 30 }}
+      initial={{ opacity: 0, y: 0 }}
       whileInView={{ opacity: 1, y: 0 }}
+      exit={{opacity: 0}}
       transition={{ delay: index * 0.08, duration: 0.3 }}
       whileHover={{ scale: 1.04 }}
+
       className="relative max-w-[320px] h-105 rounded-2xl overflow-hidden bg-black shrink-0 border-2 border-white"
     >
       <img

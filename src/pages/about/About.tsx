@@ -1,29 +1,16 @@
 import HorizontalCard from "../../components/otherComponents/HorizontalCards";
 import { useRef, type JSX } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { naturalSkillsCardData } from "../../data/Constant";
 
 const About = (): JSX.Element => {
-  const targetRef = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-  });
-
-  const x = useTransform(scrollYProgress, [0, 1], ["20%", "-120%"]);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
 
   return (
-    <section
-      ref={targetRef}
-      className="relative h-[300vh] bg-transparent"
-      id="About"
-    >
-      {/* Sticky Container */}
-      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-        <h1
-          className="
-          text-3xl md:text-4xl lg:text-5xl uppercase absolute
-          top-5 left-1/2 -translate-x-1/2 translate-y-15 md:translate-y-0 
+    <section className="relative p-5" id="About">
+
+      <h1
+        className="
+          text-3xl md:text-4xl lg:text-5xl uppercase 
           font-extrabold tracking-wide text-nowrap
 
           bg-linear-to-r from-gray-700 via-white to-gray-700
@@ -31,27 +18,33 @@ const About = (): JSX.Element => {
 
           shimmer-text
           "
-        >
-          tech asernal
-        </h1>
-        {/* Horizontal Scroll Wrapper */}
-        <motion.div
-          style={{ x }}
-          className="flex items-center gap-10 px-10 min-w-max"
-        >
-          <div className="w-[40vw] shrink-0" />
+      >
+        tech asernal
+      </h1>
 
-          {/* Cards */}
-          {naturalSkillsCardData.map((card, index) => (
+      <div
+        ref={scrollRef}
+        className="
+          overflow-x-auto
+          overflow-y-visible
+          py-4
+          flex
+          gap-10
+          px-[10vw]
+          scroll-smooth
+          scrollbar-hide
+        "
+      >
+
+        {naturalSkillsCardData.map((card, index) => (
+          <div key={`${card.id}-${index}`} className="shrink-0">
             <HorizontalCard
-              key={`${card.id}-${card.title}`}
               cardData={card}
               index={index}
             />
-          ))}
+          </div>
+        ))}
 
-          <div className="w-[40vw] shrink-0" />
-        </motion.div>
       </div>
     </section>
   );
