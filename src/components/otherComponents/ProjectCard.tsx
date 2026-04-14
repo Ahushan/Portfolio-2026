@@ -1,80 +1,124 @@
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, X } from "lucide-react";
 import { type projectsDataTypes } from "../../data/types";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-type projectPropType = {
+type ProjectCardProps = {
   project: projectsDataTypes;
-  index: number;
 };
 
-const ProjectCard = ({ project }: projectPropType) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+const ProjectCard = ({ project }: ProjectCardProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  // ✅ ESC key close
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+
+    if (isOpen) {
+      window.addEventListener("keydown", handleEsc);
+    }
+
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [isOpen]);
 
   return (
-    <div>
-      {/* IMAGE */}
-      <div className="rounded-lg overflow-hidden relative">
-        <img
-          src={project.image || "/placeholder.svg"}
-          alt={project.title}
-          loading="lazy"
-          className="w-full h-48 sm:h-56 md:h-64 object-cover transition-transform duration-300 hover:scale-105"
-        />
-      </div>
-
-      <div className="text-white tracking-wide cursor-pointer px- py-2 mt-3 rounded-lg">
-        {/* TITLE */} 
-        <div className="w-full h-full rounded-lg group transition py-2 flex justify-evenly
-        border-2 border-white items-center hover:scale-97 ease-in-out duration-200 bg-black/70"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <h3
-            className="text-sm font-bold mt-4 josefin uppercase pb-2 text-center cursor-pointer  transition"
-          >
+    <>
+      {/* CARD */}
+      <div
+        onClick={() => setIsOpen(true)}
+        className="cursor-pointer border border-white/10 rounded-lg bg-black hover:border-white/30 transition"
+      >
+        <div className="overflow-hidden rounded-t-lg">
+          <img
+            src={project.image || "/placeholder.svg"}
+            alt={project.title}
+            loading="lazy"
+            className="w-full h-52 md:h-60 object-cover transition duration-300 hover:scale-105"
+          />
+        </div>
+        <div className="p-4">
+          <h3 className="text-white text-base font-semibold uppercase tracking-wide">
             {project.title}
           </h3>
         </div>
 
-        <AnimatePresence initial={false}>
-          {isOpen && (
+      </div>
+
+      {/* MODAL */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsOpen(false)} // ✅ outside click
+          >
+            {/* MODAL BOX */}
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="overflow-hidden"
+              initial={{ scale: 0.9, y: 30, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.9, y: 30, opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="bg-black border border-white/20 rounded-xl w-full max-w-2xl overflow-hidden relative"
+              onClick={(e) => e.stopPropagation()} // ✅ prevent inside click
             >
-              <div className="josefin mt-3 font-light border-2 border-white bg-gray-800 p-3 rounded-lg">
-                <p className="text-sm text-white space-y-2 tracking-wide">
+              {/* CLOSE BUTTON */}
+              <button
+                onClick={() => setIsOpen(false)}
+                className="absolute top-3 right-3 z-10 bg-white/10 hover:bg-white/20 p-2 rounded-full"
+              >
+                <X className="w-4 h-4 text-white" />
+              </button>
+
+              {/* IMAGE */}
+              <img
+                src={project.image || "/placeholder.svg"}
+                alt={project.title}
+                className="w-full h-56 md:h-64 object-cover"
+              />
+
+              {/* CONTENT */}
+              <div className="p-5">
+                <h2 className="text-xl font-bold text-white uppercase">
+                  {project.title}
+                </h2>
+
+                <p className="text-sm text-white/80 mt-3 leading-relaxed">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mt-6">
-                  {project.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 bg-black/70 text-white text-xs rounded-full"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                {/* TECH STACK (SCROLLABLE X) */}
+                <div className="mt-4 overflow-x-auto no-scrollbar">
+                  <div className="flex gap-2 min-w-max">
+                    {project.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 text-xs rounded-md bg-white/10 text-white whitespace-nowrap"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                {/* ICONS */}
-                <div className="flex mt-2 justify-end gap-2">
+
+                {/* ACTIONS */}
+                <div className="flex justify-end gap-3 mt-6">
                   {project.github && (
                     <button
                       onClick={() => window.open(project.github, "_blank")}
-                      className="p-2 rounded-full bg-green-700 border border-white/30 text-white hover:bg-green-800 hover:scale-110 transition"
+                      className="p-2 rounded-md bg-white/10 hover:bg-white/20 transition"
                     >
-                      <Github className="w-4 h-4" />
+                      <Github className="w-4 h-4 text-white" />
                     </button>
                   )}
 
                   {project.live && (
                     <button
                       onClick={() => window.open(project.live, "_blank")}
-                      className="p-2 rounded-full bg-white text-black hover:scale-110 transition"
+                      className="p-2 rounded-md bg-white text-black hover:bg-gray-200 transition"
                     >
                       <ExternalLink className="w-4 h-4" />
                     </button>
@@ -82,10 +126,10 @@ const ProjectCard = ({ project }: projectPropType) => {
                 </div>
               </div>
             </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
