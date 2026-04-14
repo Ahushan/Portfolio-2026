@@ -4,13 +4,13 @@ import Bitmoji from "../../assets/images/my_images/my_bitmoji.png";
 import InViewNotification from "../../components/otherComponents/InViewNotification";
 import { Bell } from "lucide-react";
 import HeartGif from "../../assets/images/gif/512.gif";
-import animatedGif from "../../assets/images/gif/waves.gif";
+import cosmic from "../../assets/images/gif/cosmic.gif";
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center text-white px-6 overflow-hidden">
       <img
-        src={animatedGif}
+        src={cosmic}
         alt="background animation"
         className="
           absolute inset-0

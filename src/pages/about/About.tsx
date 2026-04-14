@@ -23,7 +23,7 @@ const About = (): JSX.Element => {
         <h1
           className="
           text-3xl md:text-4xl lg:text-5xl uppercase absolute
-          top-5 left-1/2 -translate-x-1/2
+          top-5 left-1/2 -translate-x-1/2 translate-y-15 md:translate-y-0 
           font-extrabold tracking-wide text-nowrap
 
           bg-linear-to-r from-gray-700 via-white to-gray-700
