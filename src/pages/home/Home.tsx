@@ -86,6 +86,7 @@ const Home = (): JSX.Element => {
                 "
                 words="A versatile creator skilled in frontend and backend development, database management, UI/UX design, and content writing. My expertise spans crafting seamless user interfaces to building robust backend systems, ensuring cohesive and user-friendly experiences. I design efficient databases and understand scalable system design principles. Proficient in Git for collaboration, I transform ideas into impactful digital products. Looking ahead, I aim to integrate AI and ML into my projects to build innovative solutions."
               />
+
             </motion.div>
 
           </div>
