@@ -6,12 +6,12 @@ const About = (): JSX.Element => {
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
   return (
-    <section className="relative p-5" id="About">
+    <section className="relative py-5" id="About">
 
       <h1
         className="
           text-3xl md:text-4xl lg:text-5xl uppercase 
-          font-extrabold tracking-wide text-nowrap
+          font-extrabold tracking-wide text-nowrap pl-5
 
           bg-linear-to-r from-gray-700 via-white to-gray-700
           bg-clip-text text-transparent

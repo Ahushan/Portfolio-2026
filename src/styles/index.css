@@ -5,7 +5,6 @@
 @import url('./hosnia-font.css');
 @import url('./moon-walk-font.css');
 @import "tailwindcss";
-
 ::-webkit-scrollbar {
   display: none;
 }
