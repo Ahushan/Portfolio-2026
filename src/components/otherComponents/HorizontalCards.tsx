@@ -10,10 +10,17 @@ export interface HorizontalCardProps {
 function HorizontalCard({ cardData, index }: HorizontalCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 1, y: 0, scale:0.8}}
-      whileInView={{ opacity: 1, y: 0, scale:1 }}
-      exit={{opacity: 0, y: 20, scale:0.8}}
-      transition={{ delay: index * 0.08, duration: 0.3 }}
+      initial={{ opacity: 1, y: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: 20, scale: 0.8 }}
+      
+      // 🔥 ONLY IMPROVED SMOOTHNESS HERE
+      transition={{
+        delay: index * 0.08,
+        duration: 0.6,
+        ease: [0.25, 0.1, 0.25, 1],
+      }}
+
       whileHover={{ scale: 1.04 }}
 
       className="relative max-w-[320px] h-105 rounded-2xl overflow-hidden bg-black shrink-0 border-2 border-white"
@@ -23,9 +30,15 @@ function HorizontalCard({ cardData, index }: HorizontalCardProps) {
         alt="bg animation"
         className="absolute inset-0 w-[320px] h-75 object-cover z-10 top-[55%] scale-150"
       />
+
       <div className="relative h-fit z-20 p-6 flex flex-col gap-4">
-        <h2 className={`text-2xl ${cardData.color}  bg-clip-text text-transparent font-bold`}>{cardData.title}</h2>
-        <p className="text-sm text-gray-300">{cardData.description}</p>
+        <h2 className={`text-2xl ${cardData.color} bg-clip-text text-transparent font-bold`}>
+          {cardData.title}
+        </h2>
+
+        <p className="text-sm text-gray-300">
+          {cardData.description}
+        </p>
       </div>
     </motion.div>
   );
