@@ -1,6 +1,33 @@
 import HorizontalCard from "../../components/otherComponents/HorizontalCards";
 import { useRef, type JSX } from "react";
+import { motion } from "framer-motion";
 import { naturalSkillsCardData } from "../../data/Constant";
+
+const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const card = {
+  hidden: {
+    opacity: 0,
+    y: 20,
+    scale: 0.95,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: [0.25, 0.1, 0.25, 1] as const,
+    },
+  },
+};
 
 const About = (): JSX.Element => {
   const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -8,6 +35,7 @@ const About = (): JSX.Element => {
   return (
     <section className="relative py-5" id="About">
 
+      {/* TITLE (unchanged) */}
       <h1
         className="
           text-3xl md:text-4xl lg:text-5xl uppercase 
@@ -17,13 +45,18 @@ const About = (): JSX.Element => {
           bg-clip-text text-transparent
 
           shimmer-text
-          "
+        "
       >
         tech asernal
       </h1>
 
-      <div
+      {/* SCROLL AREA (unchanged layout) */}
+      <motion.div
         ref={scrollRef}
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
         className="
           overflow-x-auto
           overflow-y-visible
@@ -36,16 +69,20 @@ const About = (): JSX.Element => {
         "
       >
 
-        {naturalSkillsCardData.map((card, index) => (
-          <div key={`${card.id}-${index}`} className="shrink-0">
+        {naturalSkillsCardData.map((cardData, index) => (
+          <motion.div
+            key={`${cardData.id}-${index}`}
+            variants={card}
+            className="shrink-0"
+          >
             <HorizontalCard
-              cardData={card}
+              cardData={cardData}
               index={index}
             />
-          </div>
+          </motion.div>
         ))}
 
-      </div>
+      </motion.div>
     </section>
   );
 };

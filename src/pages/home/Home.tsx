@@ -6,7 +6,7 @@ import TextGenerateEffect from "../../components/texts/TextGenerateEffect";
 import image1 from "../../assets/images/my_images/my-image1.png";
 import image2 from "../../assets/images/my_images/my-image2.png";
 import image3 from "../../assets/images/my_images/my-image3.png";
-import flower from "../../assets/images/gif/flowers.gif"
+import flower from "../../assets/images/gif/flowers.gif";
 
 const Home = (): JSX.Element => {
   const Image_Gallery = [image1, image2, image3];
@@ -14,13 +14,18 @@ const Home = (): JSX.Element => {
   return (
     <section className="relative px-4 md:px-8 py-10" id="Home">
 
-      <div className="max-w-6xl  mx-auto flex flex-col lg:flex-row items-center gap-12">
+      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
 
+        {/* LEFT IMAGE */}
         <motion.div
           className="flex-1 flex justify-center"
-          initial={{ x: -80, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
+          initial={{ x: -50, opacity: 0, scale: 0.94 }}
+          animate={{ x: 0, opacity: 1, scale: 1 }}
+          transition={{
+            duration: 1,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          style={{ willChange: "transform, opacity" }}
         >
           <div className="relative w-72 flex justify-center md:w-96 rounded-md overflow-hidden">
 
@@ -28,13 +33,13 @@ const Home = (): JSX.Element => {
               src={flower}
               alt="background animation"
               className="
-              absolute inset-0
-              w-full h-full
-              object-cover
-              pointer-events-none
-              select-none
-              opacity-80
-              z-0
+                absolute inset-0
+                w-full h-full
+                object-cover
+                pointer-events-none
+                select-none
+                opacity-80
+                z-0
               "
             />
 
@@ -50,43 +55,60 @@ const Home = (): JSX.Element => {
           </div>
         </motion.div>
 
+        {/* RIGHT TEXT */}
         <motion.div
           className="flex-1"
-          initial={{ x: 40, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
+          initial={{ x: 25, opacity: 0, scale: 0.97 }}
+          animate={{ x: 0, opacity: 1, scale: 1 }}
+          transition={{
+            delay: 0.15,
+            duration: 1,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          style={{ willChange: "transform, opacity" }}
         >
           <div className="max-w-xl">
 
-            <h1
-              className=" my-2
-          text-3xl md:text-4xl lg:text-5xl uppercase
-          font-extrabold tracking-wide text-nowrap
+            <motion.h1
+              className="
+                my-2
+                text-3xl md:text-4xl lg:text-5xl uppercase
+                font-extrabold tracking-wide text-nowrap
 
-          bg-linear-to-r from-gray-700 via-white to-gray-700
-          bg-clip-text text-transparent
+                bg-linear-to-r from-gray-700 via-white to-gray-700
+                bg-clip-text text-transparent
 
-          shimmer-text
-          "
+                shimmer-text
+              "
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.25,
+                duration: 0.6,
+                ease: "easeOut",
+              }}
             >
               About me
-            </h1>
+            </motion.h1>
 
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.4,
+                duration: 0.7,
+                ease: "easeOut",
+              }}
             >
               <TextGenerateEffect
                 className="
-                text-md md:text-base
-                text-white
-                leading-relaxed
-                tracking-wide font-light
+                  text-md md:text-base
+                  text-white
+                  leading-relaxed
+                  tracking-wide font-light
                 "
                 words="A versatile creator skilled in frontend and backend development, database management, UI/UX design, and content writing. My expertise spans crafting seamless user interfaces to building robust backend systems, ensuring cohesive and user-friendly experiences. I design efficient databases and understand scalable system design principles. Proficient in Git for collaboration, I transform ideas into impactful digital products. Looking ahead, I aim to integrate AI and ML into my projects to build innovative solutions."
               />
-
             </motion.div>
 
           </div>

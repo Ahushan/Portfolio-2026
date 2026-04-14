@@ -1,42 +1,50 @@
 import { motion } from "framer-motion";
 import type { JSX } from "react";
-import type { Variants } from "framer-motion";
 
-const variants: Variants = {
+const container = {
+  animate: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const bar = {
   initial: {
-    scaleY: 0.5,
-    opacity: 0,
+    scaleY: 0.4,
+    opacity: 0.4,
   },
   animate: {
-    scaleY: 1,
-    opacity: 1,
+    scaleY: [0.4, 1, 0.4],
+    opacity: [0.4, 1, 0.4],
     transition: {
-      repeat: Infinity,
-      repeatType: "mirror",
       duration: 1,
-      ease: "circIn",
+      ease: "easeInOut" as const,
+      repeat: Infinity,
     },
   },
 };
 
 const BarLoader = (): JSX.Element => {
   return (
-    <>
-      <motion.div
-        transition={{
-          staggerChildren: 0.25,
-        }}
-        initial="initial"
-        animate="animate"
-        className="flex gap-1 h-screen w-screen justify-center items-center bg-black no-scrollbar"
-      >
-        <motion.div variants={variants} className="h-12 w-2 bg-white" />
-        <motion.div variants={variants} className="h-12 w-2 bg-white" />
-        <motion.div variants={variants} className="h-12 w-2 bg-white" />
-        <motion.div variants={variants} className="h-12 w-2 bg-white" />
-        <motion.div variants={variants} className="h-12 w-2 bg-white" />
-      </motion.div>
-    </>
+    <motion.div
+      variants={container}
+      initial="initial"
+      animate="animate"
+      className="
+        flex gap-1 h-screen w-screen
+        justify-center items-center
+        bg-black
+      "
+    >
+      {[...Array(5)].map((_, i) => (
+        <motion.div
+          key={i}
+          variants={bar}
+          className="h-12 w-2 bg-white rounded-full"
+        />
+      ))}
+    </motion.div>
   );
 };
 

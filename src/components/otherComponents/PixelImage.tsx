@@ -20,7 +20,7 @@ const DEFAULT_GRIDS: Record<string, Grid> = {
 type PredefinedGridKey = keyof typeof DEFAULT_GRIDS;
 
 interface PixelImageProps {
-  src: string[]; // ✅ changed to array
+  src: string[];
   grid?: PredefinedGridKey;
   customGrid?: Grid;
   grayscaleAnimation?: boolean;
@@ -34,17 +34,15 @@ export const PixelImage = ({
   src,
   grid = "6x4",
   grayscaleAnimation = true,
-  pixelFadeInDuration = 1000,
-  maxAnimationDelay = 1200,
-  colorRevealDelay = 1300,
+  pixelFadeInDuration = 900,
+  maxAnimationDelay = 900,
+  colorRevealDelay = 1100,
   customGrid,
   showReplayButton = false,
 }: PixelImageProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const [showColor, setShowColor] = useState(false);
   const [key, setKey] = useState(0);
-
-  // ✅ new state for image index
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const MIN_GRID = 1;
@@ -71,23 +69,23 @@ export const PixelImage = ({
     setIsVisible(false);
     setShowColor(false);
 
-    // ✅ move to next image (loop back)
-    setCurrentIndex((prev) => (prev + 1) % src.length);
-
-    setKey((prev) => prev + 1);
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev + 1) % src.length);
+      setKey((prev) => prev + 1);
+    }, 120); // 🔥 prevents flicker/jump
   };
 
   useEffect(() => {
-    const startTimeout = setTimeout(() => {
+    const start = requestAnimationFrame(() => {
       setIsVisible(true);
-    }, 50);
+    });
 
     const colorTimeout = setTimeout(() => {
       setShowColor(true);
-    }, colorRevealDelay + 50);
+    }, colorRevealDelay);
 
     return () => {
-      clearTimeout(startTimeout);
+      cancelAnimationFrame(start);
       clearTimeout(colorTimeout);
     };
   }, [colorRevealDelay, key]);
@@ -106,7 +104,7 @@ export const PixelImage = ({
         ${col * (100 / cols)}% ${(row + 1) * (100 / rows)}%
       )`;
 
-      const delay = ((index * 23) % total) * (maxAnimationDelay / total);
+      const delay = index * (maxAnimationDelay / total);
 
       return {
         clipPath,
@@ -117,16 +115,16 @@ export const PixelImage = ({
 
   return (
     <div className="relative h-92 w-72 select-none md:h-126 md:w-96 z-10">
-      <div
-        className="relative h-92 w-72 md:h-126 md:w-96"
-        key={key}
-      >
+
+      <div className="relative h-92 w-72 md:h-126 md:w-96" key={key}>
+
         {pieces.map((piece, index) => (
           <div
             key={index}
             className={cn(
-              "absolute inset-0 transition-all ease-out",
-              isVisible ? "opacity-100" : "opacity-0",
+              "absolute inset-0 will-change-transform",
+              "transition-opacity ease-out",
+              isVisible ? "opacity-100" : "opacity-0"
             )}
             style={{
               clipPath: piece.clipPath,
@@ -135,19 +133,19 @@ export const PixelImage = ({
             }}
           >
             <img
-              src={src[currentIndex]} // ✅ use current image
+              src={src[currentIndex]}
               alt={`Pixel piece ${index + 1}`}
               draggable={false}
-              width={400}
-              height={400}
               className={cn(
                 "size-full object-cover",
-                grayscaleAnimation && (showColor ? "grayscale-0" : "grayscale"),
+                grayscaleAnimation &&
+                  (showColor ? "grayscale-0" : "grayscale")
               )}
               style={{
                 transform: "scale(1.02)",
+                willChange: "transform, filter",
                 transition: grayscaleAnimation
-                  ? `filter ${pixelFadeInDuration}ms cubic-bezier(0.4, 0, 0.2, 1)`
+                  ? `filter ${pixelFadeInDuration}ms cubic-bezier(0.22, 1, 0.36, 1)`
                   : "none",
               }}
             />
@@ -159,7 +157,12 @@ export const PixelImage = ({
         <button
           type="button"
           onClick={resetAnimation}
-          className="absolute bottom-2 right-2 z-10 rounded-lg text-white text-xl p-2 hover:scale-115 transition-all ease-in-out hover:cursor-pointer"
+          className="
+            absolute bottom-2 right-2 z-10
+            rounded-lg text-white text-xl p-2
+            hover:scale-110 transition-transform duration-300 ease-out
+            hover:cursor-pointer
+          "
         >
           <SiReactiveresume />
         </button>
