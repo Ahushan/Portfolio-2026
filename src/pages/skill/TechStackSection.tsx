@@ -21,7 +21,7 @@ function TechStackSection({ TechStackData }: TechStackSectionProps) {
       id="tech-stack"
       className="relative z-10 overflow-hidden bg-transparent p-5"
     >
-      <div className="">
+      <div className="w-full mx-auto">
         
         {/* Heading */}
         <h1

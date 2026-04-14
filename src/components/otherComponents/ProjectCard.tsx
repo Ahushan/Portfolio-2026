@@ -45,8 +45,8 @@ const ProjectCard = ({ project }: projectPropType) => {
               transition={{ duration: 0.4, ease: "easeInOut" }}
               className="overflow-hidden"
             >
-              <div className="josefin mt-3 bg-linear-to-r from-purple-600 to-indigo-500 p-3 rounded-lg">
-                <p className="text-sm text-white tracking-wide">
+              <div className="josefin mt-3 font-light border-2 border-white bg-gray-800 p-3 rounded-lg">
+                <p className="text-sm text-white space-y-2 tracking-wide">
                   {project.description}
                 </p>
 
@@ -54,7 +54,7 @@ const ProjectCard = ({ project }: projectPropType) => {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-1 bg-white/70 text-black text-xs rounded-full"
+                      className="px-2 py-1 bg-black/70 text-white text-xs rounded-full"
                     >
                       {tech}
                     </span>

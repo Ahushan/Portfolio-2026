@@ -4,7 +4,7 @@ import { certificationsData } from "../../data/Constant";
 const More = () => {
   return (
     <div
-      className="bg-transparent h-fit p-5 overflow-hidden mx-auto max-w-7xl "
+      className="bg-transparent h-fit overflow-hidden p-5 "
       id="More"
     >
         <h1
